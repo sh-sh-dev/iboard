@@ -35,8 +35,8 @@ class OrderSubmitController extends BaseController
         $type = $request->input('type');
         $date = strtotime($request->input('date'));
         if (!$date)
-            return back()->withErrors([
-                'date' => 'invalid date'
+            return back()->withInput()->withErrors([
+                'date' => __('validation.invalid', ['attribute' => __('validation.attributes.date')])
             ]);
 
         $order = Order::create([
