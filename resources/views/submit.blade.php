@@ -1,0 +1,71 @@
+@extends('layout.app')
+
+@section('title', 'Submit Order')
+
+@section('content')
+    <form class="text-center p-5" method="post" action="">
+        @csrf
+        <h1 class="mb-3">{{ env('APP_NAME') }}</h1>
+
+        @if (session('message'))
+            <div class="alert alert-success mb-3" role="alert">
+                {{ session('message') }}
+            </div>
+        @endif
+
+        <div class="form-floating mb-3">
+            <select name="product" id="products" class="form-control" dir="ltr">
+                @foreach($products as $product)
+                    <option>{{ $product }}</option>
+                @endforeach
+            </select>
+            <label>محصول</label>
+
+            @error('product')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+        <div class="form-floating mb-3">
+            <input name="price" type="number" dir="ltr" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}">
+            <label>مبلغ</label>
+
+            @error('price')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+
+        <div class="form-floating mb-3">
+            <input name="date" dir="ltr" class="form-control @error('date') is-invalid @enderror"
+                   value="{{ old('date') }}">
+            <label>تاریخ</label>
+
+            @error('date')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+
+        <div class="form-floating mb-3">
+            <select name="type" class="form-control">
+                <option value="0">آی‌بورد</option>
+                <option value="1">مشتری</option>
+            </select>
+            <label>تامین قطعه</label>
+
+            @error('type')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-primary" type="submit">ثبت</button>
+        </div>
+    </form>
+@endsection
