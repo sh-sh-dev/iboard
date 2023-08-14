@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\OrderSubmitController::class, 'index']);
+Route::prefix('/')->group(function() {
+    Route::get('/', [\App\Http\Controllers\OrderSubmitController::class, 'index'])->name('submit');
+    Route::post('/', [\App\Http\Controllers\OrderSubmitController::class, 'store'])->name('submit.form');
+});
 
-Route::post('/', [\App\Http\Controllers\OrderSubmitController::class, 'store']);

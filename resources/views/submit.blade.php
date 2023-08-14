@@ -3,9 +3,9 @@
 @section('title', 'Submit Order')
 
 @section('content')
-    <form class="text-center p-5" method="post" action="">
+    <form class="text-center p-5" method="post" action="{{ route('submit.form') }}">
         @csrf
-        <h1 class="mb-3">{{ env('APP_NAME') }}</h1>
+        <h3 class="mb-5">ثبت سفارش</h3>
 
         @if (session('message'))
             <div class="alert alert-success mb-3" role="alert">
