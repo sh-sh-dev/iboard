@@ -1,13 +1,12 @@
-<div class="container">
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-            <span class="fs-4">{{ env('APP_NAME') }}</span>
-        </a>
-
-        <ul class="nav nav-pills">
-            <li class="nav-item"><a href="{{ route('submit') }}" class="nav-link">ثبت</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">لیست</a></li>
-        </ul>
-    </header>
-</div>
+<nav id="navbar" class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container">
+        <a class="navbar-brand"><span>{{ env('APP_NAME') }}</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-items"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbar-items">
+            <ul id="navbar-navlist" class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="{{ route('submit') }}">ثبت</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">لیست</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
