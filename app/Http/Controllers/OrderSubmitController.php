@@ -14,14 +14,14 @@ class OrderSubmitController extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    public function index()
+    public function index(): \Illuminate\Contracts\View\View
     {
         return view('submit', [
             'products' => Order::$products,
         ]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         $request->validate([
             'product' => ['bail', 'required', Rule::in(Order::$products)],
