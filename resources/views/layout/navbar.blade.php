@@ -5,7 +5,7 @@
         <div class="collapse navbar-collapse" id="navbar-items">
             <ul id="navbar-navlist" class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="{{ route('submit') }}">ثبت</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">لیست</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('orders') }}">لیست</a></li>
             </ul>
         </div>
     </div>

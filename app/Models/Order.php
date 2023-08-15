@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Morilog\Jalali\Jalalian;
 
 class Order extends Model
 {
@@ -42,4 +43,24 @@ class Order extends Model
     protected $casts = [
         'date' => 'datetime',
     ];
+
+    public function getHumanizedProductAttribute(): string
+    {
+        $product = $this->attributes['product'];
+
+        if (in_array($product, ['PS4', 'Watch']))
+            return $product;
+        else
+            return 'iPhone ' . $product;
+    }
+
+    public function getHumanizedPriceAttribute(): string
+    {
+        return number_format($this->attributes['price']) . ' ' . 'تومان';
+    }
+
+    public function getJalaliDateAttribute(): string
+    {
+        return Jalalian::fromCarbon($this->date)->format('Y-m-d');
+    }
 }

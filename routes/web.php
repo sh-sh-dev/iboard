@@ -18,3 +18,6 @@ Route::prefix('/')->group(function() {
     Route::post('/', [\App\Http\Controllers\OrderSubmitController::class, 'store'])->name('submit.form');
 });
 
+Route::prefix('orders')->group(function() {
+    Route::get('/', [\App\Http\Controllers\OrdersController::class, 'index'])->name('orders');
+});
