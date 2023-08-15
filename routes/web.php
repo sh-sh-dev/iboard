@@ -13,11 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('/')->group(function() {
-    Route::get('/', [\App\Http\Controllers\OrderSubmitController::class, 'index'])->name('submit');
-    Route::post('/', [\App\Http\Controllers\OrderSubmitController::class, 'store'])->name('submit.form');
+Route::middleware('auth')->group(function() {
+    Route::prefix('/')->group(function() {
+        Route::get('/', [\App\Http\Controllers\OrderSubmitController::class, 'index'])->name('submit');
+        Route::post('/', [\App\Http\Controllers\OrderSubmitController::class, 'store'])->name('submit.form');
+    });
+
+    Route::prefix('orders')->group(function() {
+        Route::get('/', [\App\Http\Controllers\OrdersController::class, 'index'])->name('orders');
+    });
 });
 
-Route::prefix('orders')->group(function() {
-    Route::get('/', [\App\Http\Controllers\OrdersController::class, 'index'])->name('orders');
-});
+require __DIR__.'/auth.php';
