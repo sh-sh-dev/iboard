@@ -19,6 +19,7 @@
                 <th scope="col">قطعه آماده</th>
                 <th scope="col">قیمت</th>
                 <th scope="col">تاریخ</th>
+                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
@@ -29,6 +30,7 @@
                     <td>{{ $order->type ? '+' : '-' }}</td>
                     <td>{{ $order->humanized_price }}</td>
                     <td>{{ $order->jalali_date }}</td>
+                    <td><a class="btn btn-outline-danger btn-sm delete" href="{{ route('orders.delete', $order) }}">حذف</a></td>
                 </tr>
             @endforeach
             </tbody>

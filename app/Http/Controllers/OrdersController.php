@@ -17,4 +17,11 @@ class OrdersController extends BaseController
             'orders' => $orders
         ]);
     }
+
+    public function destroy(Order $order): \Illuminate\Http\RedirectResponse
+    {
+        $order->delete();
+
+        return back();
+    }
 }

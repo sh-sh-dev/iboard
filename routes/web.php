@@ -19,8 +19,11 @@ Route::middleware('auth')->group(function() {
         Route::post('/', [\App\Http\Controllers\OrderSubmitController::class, 'store'])->name('submit.form');
     });
 
-    Route::prefix('orders')->group(function() {
-        Route::get('/', [\App\Http\Controllers\OrdersController::class, 'index'])->name('orders');
+    Route::prefix('orders')->name('orders.')->group(function() {
+        Route::get('/', [\App\Http\Controllers\OrdersController::class, 'index'])->name('list');
+
+        // I know method of this route should be "DELETE", but this is supposed to be a one-day project.
+        Route::get('delete/{order}', [\App\Http\Controllers\OrdersController::class, 'destroy'])->name('delete');
     });
 });
 
