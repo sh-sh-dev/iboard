@@ -24,8 +24,8 @@
 
                 @error('product')
                 <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
             <div class="form-floating mb-3">
@@ -34,8 +34,8 @@
 
                 @error('price')
                 <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
 
@@ -46,8 +46,8 @@
 
                 @error('date')
                 <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
 
@@ -60,8 +60,8 @@
 
                 @error('type')
                 <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
 
