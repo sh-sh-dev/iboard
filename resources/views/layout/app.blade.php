@@ -10,9 +10,7 @@
 @include('layout.navbar')
 <div id="app">
     <div class="container-fluid">
-        <div class="h-100 d-flex align-items-center justify-content-center">
-            @yield('content')
-        </div>
+        @yield('content')
     </div>
 </div>
 @vite('resources/js/app.js')
