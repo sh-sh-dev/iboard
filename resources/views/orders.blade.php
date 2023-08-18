@@ -10,7 +10,10 @@
     @endif
 
     <div class="text-center p-4">
-        <h3 class="mb-5">لیست سفارش‌ها</h3>
+        <h3 class="mb-5">
+            لیست سفارش‌ها
+            <span>({{ $orders->count() }})</span>
+        </h3>
         <table class="table">
             <thead>
             <tr>
