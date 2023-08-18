@@ -36,7 +36,7 @@
                             <td>{{ $order->type ? 'بله' : '-' }}</td>
                             <td>{{ $order->humanized_price }}</td>
                             <td>{{ $order->jalali_date }}</td>
-                            <td><a class="btn btn-outline-danger btn-sm delete" href="{{ route('orders.delete', $order) }}">حذف</a></td>
+                            <td><a class="btn btn-outline-danger btn-sm delete" onclick="confirm('Are you sure?') || event.preventDefault()" href="{{ route('orders.delete', $order) }}">حذف</a></td>
                         </tr>
                     @endforeach
                     </tbody>
