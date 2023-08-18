@@ -16,6 +16,7 @@ class Order extends Model
         '5s',
         '6',
         '6s',
+        'SE',
         '7',
         '8',
         'X',
