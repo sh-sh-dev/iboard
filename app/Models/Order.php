@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Morilog\Jalali\Jalalian;
 
 class Order extends Model
 {
+    use SoftDeletes;
+
     public static array $products = [
         '3G',
         '3Gs',

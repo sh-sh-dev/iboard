@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('price');
             $table->timestamp('date');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
