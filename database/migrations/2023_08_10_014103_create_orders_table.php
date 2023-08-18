@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->boolean('type');
             $table->string('product');
-            $table->string('price');
+            $table->bigInteger('price');
             $table->timestamp('date');
             $table->timestamps();
             $table->softDeletes();
