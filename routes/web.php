@@ -25,6 +25,8 @@ Route::middleware('auth')->group(function() {
         // I know method of this route should be "DELETE", but this is supposed to be a one-day project.
         Route::get('delete/{order}', [\App\Http\Controllers\OrdersController::class, 'destroy'])->name('delete');
     });
+
+    Route::get('analytics', [\App\Http\Controllers\AnalyticsController::class, 'index'])->name('analytics');
 });
 
 require __DIR__.'/auth.php';
