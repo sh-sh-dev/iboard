@@ -25,7 +25,7 @@
             <tbody>
             @foreach($orders as $order)
                 <tr>
-                    <th scope="row">{{ $order->id }}</th>
+                    <th scope="row" title="{{ $order->id }}">{{ $loop->iteration }}</th>
                     <td>{{ $order->humanized_product }}</td>
                     <td>{{ $order->type ? '+' : '-' }}</td>
                     <td>{{ $order->humanized_price }}</td>
