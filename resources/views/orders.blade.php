@@ -9,12 +9,14 @@
         </div>
     @endif
 
-    <div class="text-center p-4">
-        <h3 class="mb-5">
-            لیست سفارش‌ها
-            <span>({{ $orders->count() }})</span>
-        </h3>
-        <table class="table">
+    <div class="m-4 shadow">
+        <div class="p-3 bg-dark text-light rounded-3">
+            <h3 class="ms-2">
+                لیست سفارش‌ها
+                <span>({{ $orders->count() }})</span>
+            </h3>
+            <hr>
+            <table class="table p-5 table-dark text-center table-hover">
             <thead>
             <tr>
                 <th scope="col" width="1">#</th>

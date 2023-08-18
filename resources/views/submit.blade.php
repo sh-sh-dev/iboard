@@ -3,10 +3,10 @@
 @section('title', 'Submit Order')
 
 @section('content')
-    <div class="h-100 d-flex align-items-center justify-content-center">
-        <form class="text-center p-4" method="post" action="{{ route('submit.form') }}">
+    <div class="h-100 d-flex align-items-center justify-content-center mt-4">
+        <form class="text-center p-4 bg-dark rounded-3 shadow" method="post" action="{{ route('submit.form') }}">
             @csrf
-            <h3 class="mb-5">ثبت سفارش</h3>
+            <h3 class="mb-5 text-light">ثبت سفارش</h3>
 
             @if (session('message'))
                 <div class="alert alert-success mb-3" role="alert">
@@ -40,8 +40,7 @@
             </div>
 
             <div class="form-floating mb-3">
-                <input name="date" dir="ltr" class="form-control @error('date') is-invalid @enderror"
-                       value="{{ old('date') }}">
+                <input name="date" dir="ltr" class="form-control @error('date') is-invalid @enderror" value="{{ old('date') }}">
                 <label>تاریخ</label>
 
                 @error('date')
@@ -66,7 +65,7 @@
             </div>
 
             <div class="d-grid gap-2 col-6 mx-auto">
-                <button class="btn btn-dark" type="submit">ثبت</button>
+                <button class="btn btn-outline-danger" type="submit">ثبت</button>
             </div>
         </form>
     </div>
