@@ -11,10 +11,29 @@
 
     <div class="m-4 shadow">
         <div class="p-3 bg-dark text-light rounded-3">
-            <h3 class="ms-2">
-                لیست سفارش‌ها
-                <span>({{ $orders->count() }})</span>
-            </h3>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-toolbar">
+                    <h3 class="ms-2">
+                        لیست سفارش‌ها
+                        <span>({{ $orders->count() }})</span>
+                    </h3>
+                </div>
+                <div class="justify-content-end row">
+                    <form class="col-12" method="get" id="sortForm">
+                        <label class="m-2 text-muted align">ترتیب:</label>
+                        <label>
+                            <select id="sort" name="sort" oninput="document.getElementById('sortForm').submit()" class="form-control bg-dark text-light border-secondary text-center">
+                                <option value="id-asc">شماره - قدیم</option>
+                                <option value="id-desc">شماره - جدید</option>
+                                <option value="date-asc">تاریخ - قدیم</option>
+                                <option value="date-desc">تاریخ - جدید</option>
+                                <option value="price-asc">قیمت - کم</option>
+                                <option value="price-desc">قیمت - زیاد</option>
+                            </select>
+                        </label>
+                    </form>
+                </div>
+            </div>
             <hr>
             <div class="table-responsive-md">
                 <table class="table p-5 table-dark text-center table-hover">
@@ -42,5 +61,9 @@
                     </tbody>
                 </table>
             </div>
+        </div>
     </div>
+    <script>
+        document.getElementById('sort').value = '{{ $sort }}';
+    </script>
 @endsection
