@@ -52,7 +52,7 @@
 
             <div class="form-floating mb-3">
                 <select name="type" class="form-control">
-                    <option value="0">آی‌بورد</option>
+                    <option value="0" dir="auto">{{ env('APP_NAME') }}</option>
                     <option value="1">مشتری</option>
                 </select>
                 <label>تامین قطعه</label>
