@@ -1,4 +1,4 @@
-<nav id="navbar" class="navbar navbar-expand-lg bg-dark navbar-dark">
+<nav id="navbar" class="navbar navbar-expand-lg bg-dark navbar-dark shadow">
     <div class="container">
         <a class="navbar-brand"><span>{{ env('APP_NAME') }}</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-items"><span class="navbar-toggler-icon"></span></button>
