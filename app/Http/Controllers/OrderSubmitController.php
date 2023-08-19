@@ -29,23 +29,30 @@ class OrderSubmitController extends BaseController
             'price' => ['bail', 'required', 'numeric'],
             'type' => ['bail', 'required', 'in:0,1']
         ]);
-
-        $product = $request->input('product');
-        $price = $request->input('price') * 1000;
-        $type = $request->input('type');
         $date = strtotime($request->input('date'));
         if (!$date)
             return back()->withInput()->withErrors([
                 'date' => __('validation.invalid', ['attribute' => __('validation.attributes.date')])
             ]);
 
-        $order = Order::create([
-            'product' => $product,
-            'price' => $price,
+        $attributes = [
+            'product' => $request->input('product'),
+            'price' => $request->input('price') * 1000,
+            'type' => $request->input('type'),
             'date' => Carbon::createFromTimestamp($date),
-            'type' => $type,
-        ]);
+        ];
+        $duplicates = Order::query()
+            ->where($attributes)
+            ->select('id')
+            ->get();
+        $order = Order::create($attributes);
 
-        return back()->with('message', 'سفارش با شماره ' . $order->id . ' ثبت شد.');
+        if ($duplicates->count()) {
+            $ids = $duplicates->implode('id', ', ');
+            return back()->withInput()->with('message', __('order.duplicate', ['id' => $order->id, 'duplicates' => $ids]));
+        }
+        else {
+            return back()->with('message', __('order.succeed', ['id' => $order->id]));
+        }
     }
 }
