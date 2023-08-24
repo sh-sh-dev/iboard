@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <h5 class="ms-2">میانگین قیمت هر محصول</h5>
+            <h5 class="ms-2">فروش محصولات</h5>
             <div class="row justify-content-center">
                 <div class="col-10">
                     <div class="table-responsive-md">
