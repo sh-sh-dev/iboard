@@ -27,6 +27,31 @@
                     </div>
                 </div>
             </div>
+            <h5 class="ms-2">میانگین قیمت هر محصول</h5>
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <div class="table-responsive-md">
+                        <table class="table p-5 table-dark text-center table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col" width="45%">محصول</th>
+                                <th scope="col" width="5%">نوع</th>
+                                <th scope="col" width="60%">میانگین قیمت فروش</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($orders as $product)
+                                <tr>
+                                    <td>{{ $product->product }}</td>
+                                    <td>{{ $product->humanized_type }}</td>
+                                    <td>{{ number_format($product->average_price) }}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

@@ -13,6 +13,8 @@ class AnalyticsController extends BaseController
             ->select('price')
             ->get();
 
+        $averagePrices = $this->getProductsAveragePrices();
+
         return view('analytics', [
             'cards' => [
                 'total' => $orders->count(),
@@ -21,7 +23,17 @@ class AnalyticsController extends BaseController
                 'min' => $this->formatPrice($orders->min('price')),
                 'max' => $this->formatPrice($orders->max('price')),
             ],
+            'orders' => $averagePrices,
         ]);
+    }
+
+    public function getProductsAveragePrices(): \Illuminate\Database\Eloquent\Collection
+    {
+        return Order::query()
+            ->selectRaw('product, type, AVG(price) as average_price')
+            ->groupBy('product', 'type')
+            ->orderBy('average_price', 'desc')
+            ->get();
     }
 
     private function formatPrice(int|null $price): string
