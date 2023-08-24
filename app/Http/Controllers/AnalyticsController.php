@@ -14,11 +14,13 @@ class AnalyticsController extends BaseController
             ->get();
 
         return view('analytics', [
-            'total' => $orders->count(),
-            'sum' => $this->formatPrice($orders->sum('price')),
-            'avg' => $this->formatPrice($orders->avg('price')),
-            'min' => $this->formatPrice($orders->min('price')),
-            'max' => $this->formatPrice($orders->max('price')),
+            'cards' => [
+                'total' => $orders->count(),
+                'sum' => $this->formatPrice($orders->sum('price')),
+                'avg' => $this->formatPrice($orders->avg('price')),
+                'min' => $this->formatPrice($orders->min('price')),
+                'max' => $this->formatPrice($orders->max('price')),
+            ],
         ]);
     }
 

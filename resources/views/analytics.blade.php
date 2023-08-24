@@ -6,29 +6,27 @@
     <div class="m-4 shadow">
         <div class="p-3 bg-dark text-light rounded-3">
             <h3 class="ms-2">آمار</h3>
-            <div class="table-responsive-md">
-                <table class="table p-5 table-dark text-center table-hover">
-                    <thead>
-                    <tr>
-                        <th scope="col" width="50%"></th>
-                        <th scope="col"></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>تعداد</td>
-                        <td>{{ $total }}</td>
-                    </tr>
-                    <tr>
-                        <td>جمع</td>
-                        <td>{{ $sum }}</td>
-                    </tr>
-                    <tr>
-                        <td>میانگین</td>
-                        <td>{{ $avg }}</td>
-                    </tr>
-                    </tbody>
-                </table>
+            <hr>
+            <div class="card-group justify-content-center mb-3">
+                <div class="card text-white bg-dark m-3 shadow-sm" style="max-width: 15rem">
+                    <div class="card-header text-muted">تعداد</div>
+                    <div class="card-body">
+                        <h5 class="card-body text-center">{{ $cards['total'] }}</h5>
+                    </div>
+                </div>
+                <div class="card text-white bg-dark m-3 shadow-sm" style="max-width: 15rem">
+                    <div class="card-header text-muted">سرجمع</div>
+                    <div class="card-body">
+                        <h5 class="card-body text-center">{{ $cards['sum'] }}</h5>
+                    </div>
+                </div>
+                <div class="card text-white bg-dark m-3 shadow-sm" style="max-width: 15rem">
+                    <div class="card-header text-muted">میانگین</div>
+                    <div class="card-body">
+                        <h5 class="card-body text-center">{{ $cards['avg'] }}</h5>
+                    </div>
+                </div>
             </div>
+        </div>
     </div>
 @endsection
