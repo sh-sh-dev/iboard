@@ -52,7 +52,7 @@
                         <tr>
                             <th scope="row" title="{{ $order->id }}">{{ $loop->iteration }}</th>
                             <td>{{ $order->humanized_product }}</td>
-                            <td>{{ $order->type ? 'بله' : '-' }}</td>
+                            <td>{{ $order->humanized_type }}</td>
                             <td>{{ $order->humanized_price }}</td>
                             <td>{{ $order->jalali_date }}</td>
                             <td><a class="btn btn-outline-danger btn-sm delete" onclick="confirm('Are you sure?') || event.preventDefault()" href="{{ route('orders.delete', $order) }}">حذف</a></td>

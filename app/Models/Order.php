@@ -58,6 +58,11 @@ class Order extends Model
             return 'iPhone ' . $product;
     }
 
+    public function getHumanizedTypeAttribute(): string
+    {
+        return $this->attributes['type'] ? 'بله' : '-';
+    }
+
     public function getHumanizedPriceAttribute(): string
     {
         return number_format($this->attributes['price']) . ' ' . 'تومان';
