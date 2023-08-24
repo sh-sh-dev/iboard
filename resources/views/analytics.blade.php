@@ -35,8 +35,8 @@
                             <thead>
                             <tr>
                                 <th scope="col" width="45%">محصول</th>
-                                <th scope="col" width="5%">نوع</th>
-                                <th scope="col" width="60%">میانگین قیمت فروش</th>
+                                <th scope="col" width="10%">قطعه آماده</th>
+                                <th scope="col" width="45%">میانگین قیمت فروش</th>
                             </tr>
                             </thead>
                             <tbody>

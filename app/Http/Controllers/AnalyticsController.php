@@ -32,7 +32,7 @@ class AnalyticsController extends BaseController
         return Order::query()
             ->selectRaw('product, type, AVG(price) as average_price')
             ->groupBy('product', 'type')
-            ->orderBy('average_price', 'desc')
+            ->orderBy('product')
             ->get();
     }
 
