@@ -9,7 +9,9 @@ class AnalyticsController extends BaseController
 {
     public function index(): \Illuminate\Contracts\View\View
     {
-        $orders = Order::all();
+        $orders = Order::query()
+            ->select('price')
+            ->get();
 
         return view('analytics', [
             'total' => $orders->count(),
