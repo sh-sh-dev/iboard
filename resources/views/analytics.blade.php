@@ -43,7 +43,7 @@
                             <tbody>
                             @foreach($orders as $product)
                                 <tr>
-                                    <td>{{ $product->product }}</td>
+                                    <td>{{ $product->humanized_product }}</td>
                                     <td>{{ $product->humanized_type }}</td>
                                     <td>{{ $product->repeat_count }}</td>
                                     <td>{{ number_format($product->average_price) }}</td>
