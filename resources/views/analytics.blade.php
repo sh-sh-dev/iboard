@@ -34,9 +34,10 @@
                         <table class="table p-5 table-dark text-center table-hover">
                             <thead>
                             <tr>
-                                <th scope="col" width="45%">محصول</th>
+                                <th scope="col" width="30%">محصول</th>
                                 <th scope="col" width="10%">قطعه آماده</th>
-                                <th scope="col" width="45%">میانگین قیمت فروش</th>
+                                <th scope="col" width="10%">تعداد</th>
+                                <th scope="col" width="30%">میانگین قیمت فروش</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -44,6 +45,7 @@
                                 <tr>
                                     <td>{{ $product->product }}</td>
                                     <td>{{ $product->humanized_type }}</td>
+                                    <td>{{ $product->repeat_count }}</td>
                                     <td>{{ number_format($product->average_price) }}</td>
                                 </tr>
                             @endforeach

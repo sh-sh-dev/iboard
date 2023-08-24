@@ -30,7 +30,7 @@ class AnalyticsController extends BaseController
     public function getProductsAveragePrices(): \Illuminate\Database\Eloquent\Collection
     {
         return Order::query()
-            ->selectRaw('product, type, AVG(price) as average_price')
+            ->selectRaw('product, type, AVG(price) as average_price, COUNT(*) as repeat_count')
             ->groupBy('product', 'type')
             ->orderBy('product')
             ->get();
