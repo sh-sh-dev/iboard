@@ -13,6 +13,8 @@ class OrdersController extends BaseController
     {
         $request->validate([
             'sort' => ['bail', 'nullable', Rule::in($this->getAvailableSortOptions())],
+            'product' => ['bail', 'nullable', Rule::in(Order::$products)],
+            'type' => ['bail', 'nullable', 'in:0,1'],
         ]);
         $sortBy = $request->filled('sort')
             ? explode('-', $request->input('sort'))
@@ -20,8 +22,14 @@ class OrdersController extends BaseController
 
         $orders = Order::query()
             ->select(['id', 'product', 'price', 'type', 'date'])
-            ->orderBy($sortBy[0], $sortBy[1])
-            ->get();
+            ->orderBy($sortBy[0], $sortBy[1]);
+
+        if ($request->filled('product'))
+            $orders = $orders->where('product', $request->input('product'));
+        if ($request->filled('type'))
+            $orders = $orders->where('type', $request->input('type'));
+
+        $orders = $orders->get();
 
         return view('orders', [
             'orders' => $orders,

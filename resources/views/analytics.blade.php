@@ -38,6 +38,7 @@
                                 <th scope="col" width="10%">قطعه آماده</th>
                                 <th scope="col" width="10%">تعداد</th>
                                 <th scope="col" width="30%">میانگین قیمت فروش</th>
+                                <th scope="col" width="10%"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -47,6 +48,10 @@
                                     <td>{{ $product->humanized_type }}</td>
                                     <td>{{ $product->repeat_count }}</td>
                                     <td>{{ number_format($product->average_price) }}</td>
+                                    <td>
+                                        <a href="{{ route('orders.list', ['sort' => 'date-asc', 'product' => $product->product, 'type' => $product->type]) }}"
+                                           class="btn btn-outline-secondary btn-sm">مشاهده</a>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>
