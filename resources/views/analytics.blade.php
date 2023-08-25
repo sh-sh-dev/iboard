@@ -11,7 +11,7 @@
                 <div class="card text-white bg-dark m-3 shadow-sm" style="max-width: 15rem">
                     <div class="card-header text-muted">تعداد</div>
                     <div class="card-body">
-                        <h5 class="card-body text-center">{{ $cards['total'] }}</h5>
+                        <h5 class="card-body text-center">{{ $cards['count'] }}</h5>
                     </div>
                 </div>
                 <div class="card text-white bg-dark m-3 shadow-sm" style="max-width: 15rem">

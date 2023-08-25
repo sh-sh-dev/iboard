@@ -17,11 +17,9 @@ class AnalyticsController extends BaseController
 
         return view('analytics', [
             'cards' => [
-                'total' => $orders->count(),
+                'count' => $orders->count(),
                 'sum' => $this->formatPrice($orders->sum('price')),
                 'avg' => $this->formatPrice($orders->avg('price')),
-                'min' => $this->formatPrice($orders->min('price')),
-                'max' => $this->formatPrice($orders->max('price')),
             ],
             'orders' => $averagePrices,
         ]);
