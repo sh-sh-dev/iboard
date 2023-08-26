@@ -27,6 +27,8 @@
                     </div>
                 </div>
             </div>
+            <div id="chart"></div>
+            <hr>
             <h5 class="ms-2">فروش محصولات</h5>
             <div class="row justify-content-center">
                 <div class="col-10">
@@ -61,4 +63,34 @@
             </div>
         </div>
     </div>
+    <script>
+        window.addEventListener('load', () => {
+            let chart = new ApexCharts(document.querySelector("#chart"), {
+                theme: {
+                    mode: 'dark'
+                },
+                chart: {
+                    type: 'line',
+                    height: 400,
+                    zoom: {
+                        enabled: false,
+                    },
+                    fontFamily: 'Vazirmatn',
+                },
+                stroke: {
+                    curve: 'smooth',
+                },
+                series: [
+                    {
+                        data: {!! $chart->pluck('count') !!},
+                        name: 'سفارش',
+                    },
+                ],
+                xaxis: {
+                    categories: {!! $chart->pluck('date') !!}
+                },
+            });
+            chart.render();
+        });
+    </script>
 @endsection

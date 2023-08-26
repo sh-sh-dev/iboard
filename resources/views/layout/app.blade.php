@@ -7,6 +7,7 @@
     @vite('resources/css/app.css')
 </head>
 <body dir="rtl" style="overflow-x: hidden">
+@vite('resources/js/chart.js')
 @include('layout.navbar')
 <div id="app">
     <div class="container-fluid">

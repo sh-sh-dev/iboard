@@ -17,3 +17,7 @@ body {
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;;
     background-color: #f5f5f5;
 }
+
+.apexcharts-canvas > svg {
+    background-color: transparent !important;
+}
